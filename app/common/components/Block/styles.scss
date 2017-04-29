@@ -1,0 +1,15 @@
+.block {
+  box-shadow: 0 1px 0 2px rgba(240, 240, 245, 1);
+
+  &__header {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    background: rgba(240, 240, 245, 1);
+    border-radius: 3px 3px 0 0;
+  }
+
+  &__content {
+    margin-top: -1px;
+  }
+}

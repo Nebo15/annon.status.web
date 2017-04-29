@@ -17,14 +17,17 @@ Dashboard can be deployed as a single container from [nebo15/annon.status.web](h
 
 ## Configurations
 
-Application supports these environment variables:
+The application supports these environment variables:
 
 | Environment Variable  | Default Value           | Description |
 | --------------------- | ----------------------- | ----------- |
 | `PORT`                | `8080`                  | Node.js server port. |
 | `API_ENDPOINT`        | -                       | Annon API endpoint. |
-| `SITEMAP_HOSTNAME`    | `http://localhost:8080` | URL will be used in sitemap generated urls. |
+| `SITEMAP_HOSTNAME`    | `http://localhost:8080` | URL will be used in sitemap generated URLs. |
 | `LANG_COOKIE_NAME`    | `lang`                  | Name of the cookie, where storing language variable. |
+| `PROJECT_NAME`        | `Project name`          | Name of the project that is displaying in a header. |
+| `PROJECT_DESCRIPTION` | `Project description`   | Description of the project that is displaying in a header. |
+| `PROJECT_BACKGROUND`  | -                       | Background image that is covering header. |
 
 ## Docs
 
