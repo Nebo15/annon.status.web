@@ -43,6 +43,12 @@
     "Safari >= 7",
     "Safari 8"
   ],
+  "greenkeeper": {
+    "ignore": [
+      "eslint-config-airbnb",
+      "stylelint-config-standard"
+    ]
+  },
   "engines": {
     "node": "7.5.0"
   },

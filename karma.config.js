@@ -94,6 +94,7 @@ module.exports = (config) => {
       dir: './coverage',
     },
 
+    failOnEmptyTestSuite: false,
     concurrency: Infinity,
   });
 };
