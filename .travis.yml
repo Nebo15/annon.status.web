@@ -15,6 +15,7 @@ env:
 node_js:
 - 7.5.0
 before_install:
+- echo $DOCKER_USERNAME
 - npm run docker:up
 - chmod -R +x bin
 script:
