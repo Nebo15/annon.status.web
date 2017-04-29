@@ -6,10 +6,10 @@ import * as schemas from 'schemas';
 
 import loading from 'redux/loading';
 
-import templates from 'redux/templates';
+import apisStatuses from 'redux/apisStatuses';
 
 const data = combineReducers({
-  templates,
+  apisStatuses,
 });
 
 export default combineReducers({
@@ -23,5 +23,6 @@ export default combineReducers({
 export const getLocation = state => state.routing.locationBeforeTransitions;
 export const getForm = (state, formName) => state.form[formName];
 
-export const getTemplate = (state, id) => denormalize(id, schemas.template, state.data);
-export const getTemplates = (state, ids) => denormalize(ids, [schemas.template], state.data);
+export const getApisStatuses = (state, ids) => denormalize(ids, [schemas.apisStatus], state.data);
+export const getAllApisStatuses = state =>
+  getApisStatuses(state, Object.keys(state.data.apisStatuses));

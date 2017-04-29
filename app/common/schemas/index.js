@@ -1,3 +1,3 @@
 import { schema } from 'normalizr';
 
-export const template = new schema.Entity('templates');
+export const apisStatus = new schema.Entity('apisStatuses');

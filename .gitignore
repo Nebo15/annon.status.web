@@ -2,7 +2,7 @@ node_modules
 .tmp
 .idea
 .DS_Store
-*.log
+*.log*
 static
 .env
 coverage

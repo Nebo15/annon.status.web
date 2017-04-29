@@ -1,0 +1,24 @@
+.healthBanner {
+  color: white;
+  padding: 20px;
+  border-radius: 3px;
+  margin: 20px 0 40px;
+  font-size: 16px;
+  box-shadow: 0 10px 20px -10px rgba(0, 10, 6, 0.25);
+
+  &_operational {
+    background-color: #96cd2d;
+  }
+
+  &_degradated_perfomance {
+    background-color: #cd9c2d;
+  }
+
+  &_partial_outage {
+    background-color: #cd4b2d;
+  }
+
+  &_major_outage {
+    background-color: #90240b;
+  }
+}

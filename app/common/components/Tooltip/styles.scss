@@ -1,0 +1,36 @@
+.tooltip {
+  position: relative;
+
+  &__owner:hover + &__content {
+    display: block;
+  }
+
+  &__content {
+    position: absolute;
+    top: 100%;
+    display: none;
+    white-space: nowrap;
+    z-index: 10;
+    margin-top: 10px;
+    margin-left: -20px;
+    font-weight: 400;
+    background: black;
+    color: white;
+    padding: 5px 8px;
+    font-size: 11px;
+    border-radius: 3px;
+
+    &::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 3px 4px;
+      border-color: transparent transparent black;
+      display: block;
+      position: absolute;
+      top: -4px;
+      left: 25px;
+    }
+  }
+}

@@ -1,0 +1,117 @@
+
+$container-width: 860px;
+
+.wrap {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #f5f5f5;
+  flex: 0 0 auto;
+  padding: 0 20px;
+
+  &__in {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    background: rgba(130, 135, 139, 1);
+    margin: 20px auto 0;
+    max-width: $container-width;
+    min-height: 250px;
+    border-radius: 3px;
+    box-shadow: 0 -4px 40px -10px rgba(0, 10, 4, 0.3);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+
+    h1 + h3 {
+      margin-top: 15px;
+    }
+  }
+}
+
+.content {
+  flex: 1 1 auto;
+  background: white;
+  z-index: 1;
+  box-shadow: 0 -5px 60px -20px rgba(0, 10, 6, 0.2);
+  margin-top: -40px;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 1 auto;
+
+  &__in {
+    max-width: $container-width;
+    margin: 50px auto 0;
+    padding: 20px;
+  }
+}
+
+.footer {
+  flex: 0 0 auto;
+  text-align: center;
+  font-size: 11px;
+  padding: 20px 0;
+
+  a {
+    color: inherit;
+  }
+}
+
+.statuses {
+  &__item {
+    padding: 15px 10px;
+
+    & + & {
+      border-top: 1px solid rgba(240, 240, 245, 1);
+    }
+
+    .description {
+      color: #666;
+    }
+  }
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 300;
+
+  .info {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+    font-size: 18px;
+    color: rgba(140, 140, 150, 1);
+    cursor: pointer;
+
+    &__description,
+    &__docs {
+      display: inline-block;
+    }
+
+    &__docs {
+      margin-left: 10px;
+      color: inherit;
+      cursor: pointer;
+    }
+  }
+
+  .name {
+    flex: 0 0 auto;
+  }
+
+  .health {
+    flex: 0 0 auto;
+  }
+}

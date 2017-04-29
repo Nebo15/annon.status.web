@@ -1,0 +1,18 @@
+
+.healthText {
+  &_operational {
+    color: #96cd2d;
+  }
+
+  &_degradated_perfomance {
+    color: #cd9c2d;
+  }
+
+  &_partial_outage {
+    color: #cd4b2d;
+  }
+
+  &_major_outage {
+    color: #90240b;
+  }
+}
