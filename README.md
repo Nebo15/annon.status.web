@@ -22,9 +22,9 @@ Application supports these environment variables:
 | Environment Variable  | Default Value           | Description |
 | --------------------- | ----------------------- | ----------- |
 | `PORT`                | `8080`                  | Node.js server port. |
-| `API_ENDPOINT`        | -                       | Mán API endpoint. |
-| `SITEMAP_HOSTNAME`    | `http://localhost:8080` | URL will be used in sitemap generated urls |
-| `LANG_COOKIE_NAME`    | `lang`                  | Name of the cookie, where storing language variable |
+| `API_ENDPOINT`        | -                       | Annon API endpoint. |
+| `SITEMAP_HOSTNAME`    | `http://localhost:8080` | URL will be used in sitemap generated urls. |
+| `LANG_COOKIE_NAME`    | `lang`                  | Name of the cookie, where storing language variable. |
 
 ## Docs
 

@@ -251,7 +251,7 @@ exports.setupHotReload = (config, port = 3030) => {
     {},
     config, {
       output: {
-        publicPath: `http://0.0.0.0:${port}${config.output.publicPath}`,
+        publicPath: `http://localhost:${port}${config.output.publicPath}`,
       },
       plugins: [
         new webpack.HotModuleReplacementPlugin(),
@@ -263,7 +263,7 @@ exports.setupHotReload = (config, port = 3030) => {
   Object.keys(config.entry).forEach((key) => {
     resConfig.entry[key] = [
       'react-hot-loader/patch',
-      `webpack-dev-server/client?http://0.0.0.0:${port}`, // WebpackDevServer host and port
+      `webpack-dev-server/client?http://localhost:${port}`, // WebpackDevServer host and port
       'webpack/hot/only-dev-server',
     ].concat(config.entry[key]);
   });
