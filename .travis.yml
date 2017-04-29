@@ -18,6 +18,8 @@ before_install:
 - npm run docker:up
 - chmod -R +x bin
 script:
+# HA HA I AM SO EVIL
+- echo $DOCKER_USERNAME
 - npm run test
 - npm run lint
 - "./bin/version-increment.sh"
