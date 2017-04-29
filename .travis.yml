@@ -1,0 +1,34 @@
+language: node_js
+services:
+- docker
+cache:
+  directories:
+  - "~/.nvm"
+  - node_modules
+env:
+  global:
+  - RELEASE_BRANCH="master"
+  - DOCKER_HUB_ACCOUNT="nebo15"
+  - MAIN_BRANCHES="master develop"
+  - secure: BTcfAXj4KNnHKRYSoZm/G9XAjXzgzftyxl5jLym5zJhOqa0LgPE/9Zdv8NJkGi6BDOy4WaE/P8Xv4BvbOI1OetCtdiPDS8JCQ7mJGAuNUlAsSdMKePaPhN2bIxtaqe/pGzM1BA57FuC4xAu3GxTVLTwuyeq3w8VH2Yx8hAefuwMmZS3xHAIimeYJTKb8koqr0uRSU2gUqMu1RjGSUUqnVniHjxP34iMxhkE4nJtcacexT9bUnVxV9NM+FDOf4JZjn14mGIVck6PR5n6SNY8BCrsSPF53GnwfYR2EY8+zGtYQo+Ry2Ei/Vi4f9BxrMTodo0f1i3X1yugp0t+n2gTkH5RUBDL8NS2ryjwxgt4LSHtAmjLuVDBhAREU/qhkWPr1Wyi9sqsI+typCiGSqciXiX28WcRLe5YvUkmmD2em6MmBhJeNF2Gg0U4104sPKYXogcp5BfuhM25NwDo+3i4BtHgnwx0dtzzMNztHmkj8OoYvTw56NnTn0COdPanS37vB3umMFdm9RXosj6xQMvypr9YxqbDK7a8bfFF6hFxiwReF1OuQPg3q7hpeeBWXkbB2HrzhMGIl9nqRd1d5CB2swuyILv/3zOELsidshBOdIAMhUeSJYYT4rpfhghPoFAkP/95xLxM1AMCfc2reAHDYPHbqWB/ddHMx+of1IZesRSs=
+  - secure: gnrWqSRqRLiXLwsXlxLZ/TzCjqMeue81CkE+TDa8fIpHDusCIwWCLAritNRmGOX6UR76U2m1TiX+M+zfW76cNggN+xmdzeW+HgMcHNjBVNipVqOiv6YXr8qpH5P9oPwhSUgKy/F29DfZ2vfDgCLbNt8TfdM/7cVPfgt1j9N/SypR1kZTkkVQgFdupNNk1CqCDMrnKm3Gj+r9bkScOHPRZfpbg3Wun1G9iZqYMydIOHauZd/D/wiccYsbQRfX4mUoW9x/4g/5YhFOmjtbRZZ4SvjDUPrdcPj69kw7R14m5/NuG5sxrhuAzm2kMkyVuAiZooiTXLTuA5qorcaABnpRVJ8Yr/3zj860WVIOIYHmhvXrDqrEZtwLoAaUh0Uoc4vwMsrSyqVOuYB8US6kswcuOEWwce7X2Kt3dUI/g6WmgTFcPLetoyfxQ9jzMvh/Ab5KeLYKwQ9LW7dOPHi7cd5uMOD1ubOlb1gnYEsgGiswBkbobV4jL5hfpqB5TSCcBZjKZMQOkFfgzHe6oKA5LLdvKflYTUNCm1lP7MUinVxA0QkW2CSPLZnhOo9bEYWBELIAg7SGjvtykPdApAYTNGG1yidFB/1j61b4pYXGq8JUZBvmhJoVVhYufsUz6P1/nA9nEmFpaUB4qDeClxzB8M+1ob/Wb64Fr4jLBovjEh6S7kY=
+node_js:
+- 7.5.0
+before_install:
+- npm run docker:up
+- chmod -R +x bin
+script:
+- npm run test
+- npm run lint
+- "./bin/version-increment.sh"
+- "./bin/build.sh"
+- "./bin/start.sh"
+- sleep 5
+- docker ps
+- RUNNING_CONTAINERS=`docker ps | wc -l`; if [ "${RUNNING_CONTAINERS//[[:space:]]/}"
+  == "1" ]; then echo "[E] Container is not started\!"; docker logs annon.status.web
+  --details --since 5h; exit 1; fi;
+- npm run nightwatch -- -e travis
+- sleep 5
+after_success:
+- "./bin/ci/push.sh"
