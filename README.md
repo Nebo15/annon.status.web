@@ -5,6 +5,10 @@
 
 [![Build history](https://buildstats.info/travisci/chart/Nebo15/annon.status.web)](https://travis-ci.org/Nebo15/annon.status.web)
 
+
+**Demo:** https://annon-status-web.herokuapp.com
+
+
 ## Installation
 
 ### Heroku One-Click Deployment
