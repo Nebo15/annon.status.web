@@ -6,29 +6,13 @@ import * as schemas from 'schemas';
 
 import loading from 'redux/loading';
 
-import labels from 'redux/labels';
 import templates from 'redux/templates';
 
-import Aside from 'containers/blocks/Aside/redux';
-
-import TemplateListPage from 'containers/pages/TemplateListPage/redux';
-
-const blocks = combineReducers({
-  Aside,
-});
-
-const pages = combineReducers({
-  TemplateListPage,
-});
-
 const data = combineReducers({
-  labels,
   templates,
 });
 
 export default combineReducers({
-  blocks,
-  pages,
   data,
   // external libraries
   form,

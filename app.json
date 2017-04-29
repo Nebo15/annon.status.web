@@ -1,6 +1,6 @@
 {
   "name": "annon.status.web",
-  "logo": "https://raw.githubusercontent.com/Nebo15/annon.status.web/master/assets/images/logo.png",
+  "logo": "https://raw.githubusercontent.com/Nebo15/annon.status.web/master/assets/images/icons/apple-touch-icon.png",
   "scripts": {
   },
   "env": {
@@ -10,9 +10,9 @@
       "value": "true"
     },
     "API_ENDPOINT": {
-      "description": "Mán API host",
+      "description": "Annon API endpoint",
       "required": true,
-      "value": "https://man-api.herokuapp.com"
+      "value": ""
     },
     "SITEMAP_HOSTNAME": {
       "description": "SITEMAP_HOSTNAME will be used as hostname in sitemap URLs",
