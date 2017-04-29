@@ -25,6 +25,9 @@ Application supports these environment variables:
 | `API_ENDPOINT`        | -                       | Annon API endpoint. |
 | `SITEMAP_HOSTNAME`    | `http://localhost:8080` | URL will be used in sitemap generated urls. |
 | `LANG_COOKIE_NAME`    | `lang`                  | Name of the cookie, where storing language variable. |
+| `PROJECT_NAME`        | `Project name`          | Name of the project that is displaying in header. |
+| `PROJECT_DESCRIPTION` | `Project description`   | Description of the project that is displaying in header. |
+| `PROJECT_BACKGROUND`  | -                       | Background image that is covering header. |
 
 ## Docs
 
