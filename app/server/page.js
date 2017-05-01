@@ -1,9 +1,9 @@
 import Set from 'core-js/library/fn/set';
 import arrayFrom from 'core-js/library/fn/array/from';
 import CookieDough from 'cookie-dough';
+import { render } from 'rapscallion';
 
 import React from 'react';
-import ReactDOMServer from 'react-dom/server';
 import useRouterHistory from 'react-router/lib/useRouterHistory';
 import RouterContext from 'react-router/lib/RouterContext';
 import match from 'react-router/lib/match';
@@ -74,35 +74,29 @@ export default () => (req, res, next) => {
     }).then(() => {
       const reduxState = escape(JSON.stringify(getState()));
       const css = new Set();
-      /* eslint-disable no-underscore-dangle */
-      let html;
-      try {
-        html = ReactDOMServer.renderToString(
-          <I18nextProvider i18n={req.i18n}>
-            <WithStylesContext
-              onInsertCss={styles => styles._getCss && css.add(styles._getCss())}
-            >
-              <Provider store={store}>
-                <RouterContext {...renderProps} />
-              </Provider>
-            </WithStylesContext>
-          </I18nextProvider>
-        );
-      } catch (e) {
-        console.log('render error');
-        console.error(e);
-        html = null;
-      }
+      const componentRenderer = render(<I18nextProvider i18n={req.i18n}>
+        <WithStylesContext
+          onInsertCss={styles => styles._getCss && css.add(styles._getCss())}
+        >
+          <Provider store={store}>
+            <RouterContext {...renderProps} />
+          </Provider>
+        </WithStylesContext>
+      </I18nextProvider>);
 
-      const helmet = Helmet.rewind();
+      return componentRenderer.toPromise()
+        .catch(() => null)
+        .then((html) => {
+          const helmet = Helmet.rewind();
 
-      res.status(route.status || 200);
-      res.render('index', {
-        html,
-        reduxState,
-        helmet,
-        inlineCss: arrayFrom(css).join(''),
-      });
+          res.status(route.status || 200);
+          res.render('index', {
+            html,
+            reduxState,
+            helmet,
+            inlineCss: arrayFrom(css).join(''),
+          });
+        });
     })
     .catch(err => next(err));
   });
