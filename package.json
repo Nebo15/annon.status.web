@@ -1,6 +1,6 @@
 {
   "name": "annon.status.web",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Annon Status UI",
   "repository": "https://github.com/Nebo15/annon.status.web.git",
   "scripts": {
