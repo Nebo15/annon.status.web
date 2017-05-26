@@ -16,3 +16,4 @@ yarn.lock
 public/sitemap*.xml
 logs
 stats.json
+.stats

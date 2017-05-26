@@ -98,6 +98,7 @@
     "postcss-nested": "1.0.0",
     "precss": "1.4.0",
     "proxy-middleware": "0.15.0",
+    "rapscallion": "^2.1.6",
     "react": "15.2.1",
     "react-dom": "15.2.1",
     "react-helmet": "4.0.0",
