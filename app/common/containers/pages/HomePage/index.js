@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { provideHooks } from 'redial';
 import withStyles from 'withStyles';
+import Helmet from 'react-helmet';
 
 import Icon from 'components/Icon';
 import HealthBanner from 'components/HealthBanner';
@@ -33,6 +34,7 @@ export default class HomePage extends React.Component {
     const { apisStatuses } = this.props;
     return (
       <div className={styles.wrap}>
+        <Helmet title={PROJECT_NAME} />
         <header className={styles.header}>
           <div className={styles.header__in} style={{ backgroundImage: PROJECT_BACKGROUND && `url(${PROJECT_BACKGROUND})` }}>
             { PROJECT_NAME && <h1>{PROJECT_NAME}</h1>}
